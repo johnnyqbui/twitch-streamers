@@ -1,0 +1,140 @@
+$plum: #413e49;
+$ash-black: #1c1c1c;
+$highlight-purp: #433172;
+@mixin transition($transition) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+
+@mixin transform($transform) {
+    -webkit-transform: $transform;
+    -moz-transform: $transform;
+    -o-transform: $transform;
+    transform: $transform;
+}
+
+body {
+    overflow-x: hidden;
+    color: white;
+    background: $plum;
+}
+
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+}
+
+.mainContainer {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.top-bar {
+    padding: 10px 20px;
+    background: $ash-black;
+    ul {
+        font-size: 2rem;
+        background: inherit;
+        a {
+            padding: 0;
+            color: inherit;
+        }
+    }
+    .button-group {
+        padding: 0 10px;
+        .button {
+            margin: 7px 3px;
+        }
+    }
+}
+
+.mainContainer {
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
+
+.sidebar {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    li {
+        overflow: hidden;
+        margin: 10px;
+        padding: 15px;
+        cursor: pointer;
+        background: $ash-black;
+        @include transition (.2s ease);
+        &:hover {
+            margin-right: -1px;
+            margin-left: 20px;
+            background: $highlight-purp;
+        }
+        .fa-circle {
+            font-size: 12px;
+            padding-right: 10px;
+        }
+        .offline {
+            color: #b20000;
+        }
+        .online {
+            color: #25ad20;
+        }
+        a {
+            float: right;
+        }
+    }
+}
+
+.display {
+    margin: 0 auto;
+    padding: 10px 20px;
+    .header {
+        padding: 10px;
+        text-align: center;
+        background: $ash-black;
+        p {
+            margin: 0;
+        }
+    }
+    .streamer {
+        margin-top: 20px;
+        padding: 10px;
+        background: $ash-black;
+        .streamInfo {
+            padding: 0 0 10px 10px;
+            p {
+                margin: 0;
+            }
+        }
+        .preview {
+            @include transition (.2s ease);
+            &:hover {
+                opacity: .5;
+            }
+        }
+    }
+}
+
+.offlineText {
+    margin: 20px auto;
+}
+
+@media screen and (min-width: 900px) {
+    .mainContainer {
+        flex-wrap: nowrap;
+    }
+    .sidebar {
+        max-width: 400px;
+    }
+    .preview {
+        margin: 0;
+    }
+    .streamInfo {
+        margin: 0;
+    }
+}
