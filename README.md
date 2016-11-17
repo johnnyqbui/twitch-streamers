@@ -1,8 +1,3 @@
-Twitch Streamers
-
-uses sass foundation react and express
-bundled with webpack
-
 # Twitch Streamers
 
 Objective: Display streamers and their info from Twitch, online and offline.
